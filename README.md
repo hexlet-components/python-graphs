@@ -29,26 +29,26 @@ tree = ['B', [
 
 joints = make_joints(tree)
 transformed = build_tree_from_leaf(joints)
-// ['C', [
-//     ['F'],
-//     ['E'],
-//     ['A', [
-//         ['B', [
-//             ['D'],
-//         ]],
-//     ]],
-// ]]
+# ['C', [
+#     ['F'],
+#     ['E'],
+#     ['A', [
+#         ['B', [
+#             ['D'],
+#         ]],
+#     ]],
+# ]]
 
 sort_tree(transformed)
-// ['C', [
-//     ['A', [
-//         ['B', [
-//             ['D'],
-//         ]],
-//     ]],
-//     ['E'],
-//     ['F'],
-// ]]
+# ['C', [
+#     ['A', [
+#         ['B', [
+#             ['D'],
+#         ]],
+#     ]],
+#     ['E'],
+#     ['F'],
+# ]]
 ```
 
 For more information, see the [Full Documentation](docs)
