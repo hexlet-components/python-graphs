@@ -1,4 +1,9 @@
-from hexlet.graphs import build_tree_from_leaf, make_joints, sort_joints
+from hexlet.graphs import (
+    build_tree_from_leaf,
+    make_joints,
+    sort_joints,
+    sort_tree
+)
 
 
 TREE = ['A', [
@@ -97,4 +102,61 @@ def test_sort_joints():
         'O': ['J'],
     }
     actual = sort_joints(JOINTS)
+    assert actual == expected
+
+
+def test_sort_tree():
+    expected = ['A', [
+        ['B', [
+            ['D', [
+                ['H'],
+            ]],
+            ['E'],
+        ]],
+        ['C', [
+            ['F', [
+                ['I', [
+                    ['M'],
+                ]],
+                ['J', [
+                    ['N'],
+                    ['O'],
+                ]],
+            ]],
+            ['G', [
+                ['K'],
+                ['L'],
+            ]],
+        ]],
+    ]]
+    actual = sort_tree(TREE)
+    assert actual == expected
+
+
+def test_sort_tree_with_duplicate_leafs():
+    tree_with_duplicate_leafs = ['B', [
+        ['D'],
+        ['A', [
+            ['C', [
+                ['F'],
+                ['E'],
+            ]],
+            ['B', [
+                ['D'],
+            ]],
+        ]],
+    ]]
+    expected = ['B', [
+        ['A', [
+            ['B', [
+                ['D'],
+            ]],
+            ['C', [
+                ['E'],
+                ['F'],
+            ]],
+        ]],
+        ['D'],
+    ]]
+    actual = sort_tree(tree_with_duplicate_leafs)
     assert actual == expected
