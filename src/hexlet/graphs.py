@@ -23,3 +23,22 @@ def make_joints(tree, parent=None):
     )
 
     return {leaf: neighbors, **joints}
+
+
+def build_tree_from_leaf(joints, leaf):
+    def iter(current, acc):
+        checked = [*acc, current]
+        neighbors = joints[current]
+
+        filtered = filter(
+            lambda neighbor: neighbor not in checked,
+            neighbors,
+        )
+        maped = list(map(
+            lambda neighbor: iter(neighbor, checked),
+            filtered,
+        ))
+
+        return [current, maped] if maped else [current]
+
+    return iter(leaf, [])

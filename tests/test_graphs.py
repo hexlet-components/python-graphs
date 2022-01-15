@@ -1,4 +1,4 @@
-from hexlet.graphs import make_joints
+from hexlet.graphs import build_tree_from_leaf, make_joints
 
 
 TREE = ['A', [
@@ -45,5 +45,34 @@ JOINTS = {
 
 
 def test_make_joints():
-    joints = make_joints(TREE)
-    assert joints == JOINTS
+    actual = make_joints(TREE)
+    assert actual == JOINTS
+
+
+def test_build_tree_from_leaf():
+    expected = ['F', [
+        ['J', [
+            ['O'],
+            ['N'],
+        ]],
+        ['I', [
+            ['M'],
+        ]],
+        ['C', [
+            ['G', [
+                ['K'],
+                ['L'],
+            ]],
+            ['A', [
+                ['B', [
+                    ['E'],
+                    ['D', [
+                        ['H'],
+                    ]],
+                ]],
+            ]],
+        ]],
+    ]]
+    actual = build_tree_from_leaf(JOINTS, 'F')
+    print(actual)
+    assert actual == expected
