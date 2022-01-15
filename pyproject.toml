@@ -10,7 +10,7 @@ repository = "https://github.com/hexlet-components/python-graphs"
 classifiers = [
     "Intended Audience :: Education",
     "License :: OSI Approved :: ISC License (ISCL)",
-    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.6",
     "Topic :: Education",
     "Topic :: Software Development :: Libraries",
     "Typing :: Typed",
