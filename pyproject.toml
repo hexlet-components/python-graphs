@@ -16,6 +16,10 @@ classifiers = [
     "Typing :: Typed",
 ]
 
+packages = [
+    { include = "hexlet/graphs.py", from = "src" },
+]
+
 [tool.poetry.dependencies]
 python = "^3.8"
 
