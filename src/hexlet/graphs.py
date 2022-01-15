@@ -42,3 +42,11 @@ def build_tree_from_leaf(joints, leaf):
         return [current, maped] if maped else [current]
 
     return iter(leaf, [])
+
+
+def sort_joints(joints):
+    return functools.reduce(
+        lambda acc, leaf: {**acc, leaf: sorted(joints[leaf])},
+        joints,
+        {},
+    )
