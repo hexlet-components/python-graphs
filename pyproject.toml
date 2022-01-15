@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "hexlet-graphs"
-version = "0.1.0"
+version = "0.1.1"
 description = ""
 authors = ["Hexlet Team <info@hexlet.io>"]
 license = "ISC"
