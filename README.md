@@ -11,44 +11,27 @@ pip install hexlet-graphs
 ## Usage example
 
 ```python
-from hexlet.graphs import (
-    build_tree_from_leaf,
-    make_joints,
-    sort_tree
-)
-
-tree = ['B', [
-    ['D'],
-    ['A', [
-        ['C', [
-            ['F'],
-            ['E'],
-        ]],
-    ]],
-]]
-
-joints = make_joints(tree)
-transformed = build_tree_from_leaf(joints, 'C')
-# ['C', [
-#     ['F'],
-#     ['E'],
-#     ['A', [
-#         ['B', [
-#             ['D'],
-#         ]],
-#     ]],
-# ]]
-
-sort_tree(transformed)
-# ['C', [
-#     ['A', [
-#         ['B', [
-#             ['D'],
-#         ]],
-#     ]],
-#     ['E'],
-#     ['F'],
-# ]]
+>>> from hexlet.graphs import (
+...     build_tree_from_leaf,
+...     make_joints,
+...     sort_tree
+... )
+>>> tree = ['B', [
+...     ['D'],
+...     ['A', [
+...         ['C', [
+...             ['F'],
+...             ['E'],
+...         ]],
+...     ]],
+... ]]
+>>> joints = make_joints(tree)
+>>> transformed = build_tree_from_leaf(joints, 'C')
+>>> transformed
+['C', [['F'], ['E'], ['A', [['B', [['D']]]]]]]
+>>> sort_tree(transformed)
+['C', [['A', [['B', [['D']]]]], ['E'], ['F']]]
+>>>
 ```
 
 For more information, see the [Full Documentation](docs)
