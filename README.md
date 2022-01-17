@@ -11,10 +11,10 @@ pip install hexlet-graphs
 ## Usage example
 
 ```python
-from hexlet.fs import (
-  build_tree_from_leaf
-  make_joints,
-  sortTree
+from hexlet.graphs import (
+    build_tree_from_leaf,
+    make_joints,
+    sort_tree
 )
 
 tree = ['B', [
@@ -28,7 +28,7 @@ tree = ['B', [
 ]]
 
 joints = make_joints(tree)
-transformed = build_tree_from_leaf(joints)
+transformed = build_tree_from_leaf(joints, 'C')
 # ['C', [
 #     ['F'],
 #     ['E'],
