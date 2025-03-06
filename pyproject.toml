@@ -1,10 +1,9 @@
-[tool.poetry]
+[project]
 name = "hexlet-graphs"
 version = "0.1.3"
 description = ""
-authors = ["Hexlet Team <info@hexlet.io>"]
+authors = [{name = "Hexlet Team <info@hexlet.io>"}]
 license = "ISC"
-readme = "README.md"
 homepage = "https://github.com/hexlet-components/python-graphs"
 repository = "https://github.com/hexlet-components/python-graphs"
 classifiers = [
@@ -15,18 +14,19 @@ classifiers = [
     "Topic :: Software Development :: Libraries",
     "Typing :: Typed",
 ]
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = []
 
-packages = [
-    { include = "hexlet/graphs.py", from = "src" },
+[dependency-groups]
+dev = [
+    "pytest>=8.3.5",
+    "ruff>=0.9.9",
 ]
 
-[tool.poetry.dependencies]
-python = "^3.6"
-
-[tool.poetry.dev-dependencies]
-flake8 = "^4.0.1"
-pytest = "^6.2.5"
-
 [build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/hexlet"]

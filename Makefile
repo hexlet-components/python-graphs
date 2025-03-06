@@ -1,13 +1,13 @@
 export PYTHONPATH=src
 
 install:
-	poetry install
+	uv sync
 
 build:
-	poetry build
+	uv build
 
 lint:
-	poetry run flake8 .
+	uv run ruff check .
 
 test:
-	poetry run pytest -vv tests
+	uv run pytest -vv tests
