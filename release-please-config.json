@@ -1,0 +1,10 @@
+{
+  "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
+  "bootstrap-sha": "443f8bf4ef0381d2bc22cb060ccd03f8057e2d6c",
+  "packages": {
+    ".": {
+      "release-type": "python",
+      "package-name": "hexlet-graphs"
+    }
+  }
+}
