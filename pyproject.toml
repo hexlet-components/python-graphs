@@ -1,6 +1,6 @@
 [project]
 name = "hexlet-graphs"
-version = "0.1.3"
+version = "0.1.4"
 description = "Graphs algorithms implemented in Python"
 authors = [{name = "Hexlet Team <info@hexlet.io>"}]
 license = "ISC"
