@@ -1,6 +1,6 @@
 # python-graphs
 
-[![github action status](https://github.com/hexlet-components/python-graphs/workflows/Python%20CI/badge.svg)](../../actions)
+[![github action status](https://github.com/hexlet-components/python-graphs/workflows/Python%20CI/badge.svg)](https://github.com/hexlet-components/python-graphs/actions)
 
 ## Install
 
