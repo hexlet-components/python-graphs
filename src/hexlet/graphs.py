@@ -26,11 +26,14 @@ def make_joints(tree, parent=None):
         return {leaf: [parent]}
 
     flat_children = list(itertools.chain(*children))
-    neighbors = list(filter(
-        lambda neighbor: neighbor is not None and
-        not isinstance(neighbor, list),
-        [*flat_children, parent],
-    ))
+    neighbors = list(
+        filter(
+            lambda neighbor: (
+                neighbor is not None and not isinstance(neighbor, list)
+            ),
+            [*flat_children, parent],
+        )
+    )
     joints = functools.reduce(
         lambda acc, child: {**acc, **make_joints(child, leaf)},
         children,
@@ -49,10 +52,12 @@ def build_tree_from_leaf(joints, leaf):
             lambda neighbor: neighbor not in checked,
             neighbors,
         )
-        mapped_neighbors = list(map(
-            lambda neighbor: iter(neighbor, checked),
-            filtered_neighbors,
-        ))
+        mapped_neighbors = list(
+            map(
+                lambda neighbor: iter(neighbor, checked),
+                filtered_neighbors,
+            )
+        )
 
         return [current, mapped_neighbors] if mapped_neighbors else [current]
 
@@ -68,10 +73,12 @@ def map_tree(callback_fn, tree):
     if children is None:
         return [updated_name]
 
-    updated_children = list(map(
-        lambda child: map_tree(callback_fn, child),
-        children,
-    ))
+    updated_children = list(
+        map(
+            lambda child: map_tree(callback_fn, child),
+            children,
+        )
+    )
 
     return [updated_name, updated_children]
 
@@ -85,18 +92,15 @@ def sort_joints(joints):
 
 
 def make_associations(unique_tree, tree):
-    unique_leafs = flatten_deep(unique_tree)
-    leafs = flatten_deep(tree)
-    return dict(zip(unique_leafs, leafs))
+    unique_leaves = flatten_deep(unique_tree)
+    leaves = flatten_deep(tree)
+    return dict(zip(unique_leaves, leaves))
 
 
 def sort_tree(tree):
     count = itertools.count()
 
-    unique_tree = map_tree(
-        lambda name: name + str(next(count)),
-        tree
-    )
+    unique_tree = map_tree(lambda name: name + str(next(count)), tree)
     associations = make_associations(unique_tree, tree)
     root, *_ = unique_tree
     joints = make_joints(unique_tree)
